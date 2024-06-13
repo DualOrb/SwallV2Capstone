@@ -1,0 +1,10 @@
+[package]
+name = "benchmark_cmd"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = { version = "1.0.75", features = ["backtrace"] }
+clap = { version = "4.4.7", features = ["derive"] }
+serde = { version = "1.0.190", features = ["derive", "alloc"] }
+serde_json = { version = "1.0.107", features = ["alloc"] }

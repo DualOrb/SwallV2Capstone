@@ -1,0 +1,17 @@
+.t-container {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.t-container p {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+}
+
+.scheduled-time {
+    color: gray;
+    font-size: 0.7em;
+    vertical-align: top;
+}

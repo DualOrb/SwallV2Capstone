@@ -1,0 +1,17 @@
+/target
+
+*.png
+*.log
+*.mov
+*.svg
+*.dot
+*.mp4
+*.json
+
+/apps/.venv
+
+# Part of CI
+cache/
+
+# Allow
+!/apps/octranspo/OCTranspo-Carleton/src/assets/*.png

@@ -1,0 +1,17 @@
+[package]
+name = "swall_gst_plugin"
+version = "0.1.0"
+edition = "2021"
+description = "GStreamer plugin containing sWall specific filters"
+
+[dependencies]
+gstreamer = "0.22.1"
+swall_gst_compositor = { version = "0.1.0", path = "../../crates/swall_gst_compositor" }
+swall_gst_event_capture = { version = "0.1.0", path = "../../crates/swall_gst_event_capture" }
+swall_gst_input = { version = "0.1.0", path = "../../crates/swall_gst_input" }
+
+[lib]
+# Rename the shared library so gstreamer will detect it
+name = "swall"
+# Link into a shared library
+crate-type = ["cdylib", "rlib"]

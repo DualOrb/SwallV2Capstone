@@ -1,0 +1,1 @@
+cargo b --package=swall_gst_plugin && gst-launch-1.0 -v --gst-plugin-path=../../target/debug/ swall_compositor ! videoconvert ! gtkwaylandsink

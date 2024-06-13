@@ -1,0 +1,18 @@
+[package]
+name = "swall_compositor"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = { version = "1.0.75", features = ["backtrace"] }
+gstreamer = "0.22.1"
+serde = { version = "1.0.196", features = ["alloc", "derive"] }
+serde_json = "1.0.114"
+smithay = { git = "https://github.com/Smithay/smithay", rev = "3de7636e6cb562a1b9f14c76e17b0e4b27381c22", default-features = false, features = [
+    "wayland_frontend",
+    "renderer_gl",
+    "backend_gbm",
+] }
+# TODO: Make this not use full?
+tokio = { version = "1.35.1", features = ["full"] }
+tokio-stream = { version = "0.1.14", features = ["io-util", "net", "sync"] }

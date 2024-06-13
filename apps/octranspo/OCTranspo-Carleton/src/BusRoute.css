@@ -1,0 +1,78 @@
+:root {
+    --cred: #E91C23;
+}
+
+.route-container {
+    display: flex;
+    margin: 0em 3em 3em 3em;
+    height: 6em;
+
+    border-radius: 0.85em;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.route-container .trip-times .t-container {
+    background-color: #dbdad5;
+
+    &:nth-child(3n-1) {
+            background-color: white;
+    }
+
+}
+
+.route-container h3 {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.route-container .bus-num {
+    background-color: var(--cred);
+    color: white;
+    font-family: Rubik;
+    width: 3em;
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+    text-align: center;
+    border-width: 0;
+}
+
+
+.route-data {  
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+} 
+
+.route-data .bus-heading {
+    font-family: 'Titillium Web';
+    flex-basis: 100%;
+}
+
+.trip-times {
+    display: flex;
+    height: 100%;
+}
+
+
+
+.trip-times-container {
+    margin: 0;
+    flex-basis: 100%;
+    width: 100%;
+}
+
+.bus-heading h3 {
+    justify-content: start;
+    margin-left: 0.5em;
+}
+
+.bus-heading {
+    border-bottom-style: solid;
+    border-bottom-width: 0.25em;
+    border-bottom-color: var(--cred);
+}
+

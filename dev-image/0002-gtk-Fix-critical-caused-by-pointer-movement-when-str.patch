@@ -1,0 +1,27 @@
+From f8af438eb125f905dbfee6d996d1440315fb2e52 Mon Sep 17 00:00:00 2001
+From: Quinn Parrott <quinn.parrott@gmail.com>
+Date: Fri, 15 Mar 2024 19:33:12 +0000
+Subject: [PATCH 2/2] gtk: Fix critical caused by pointer movement when stream
+ is getting ready
+
+---
+ subprojects/gst-plugins-bad/ext/gtk/gtkgstbasewidget.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/subprojects/gst-plugins-bad/ext/gtk/gtkgstbasewidget.c b/subprojects/gst-plugins-bad/ext/gtk/gtkgstbasewidget.c
+index ed7cfa6609..96addf2b5e 100644
+--- a/subprojects/gst-plugins-bad/ext/gtk/gtkgstbasewidget.c
++++ b/subprojects/gst-plugins-bad/ext/gtk/gtkgstbasewidget.c
+@@ -323,7 +323,8 @@ _fit_stream_to_allocated_size (GtkGstBaseWidget * base_widget,
+     dst.w = allocation->width;
+     dst.h = allocation->height;
+ 
+-    gst_video_sink_center_rect (src, dst, result, TRUE);
++    if (base_widget->display_width > 0 && base_widget->display_height > 0)
++      gst_video_sink_center_rect (src, dst, result, TRUE);
+   } else {
+     result->x = 0;
+     result->y = 0;
+-- 
+2.39.2
+

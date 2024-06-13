@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+body {
+  margin: 0;
+  background-color: #d9dedb;
+}
+
+.title-bar {
+  display: flex;
+  position: sticky;
+  top: 0;
+  color: white;
+  height: 3em;
+  background-color: #E91C23;
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  overflow: hidden;
+
+  border-bottom-style: solid;
+  border-bottom-width: 5px;
+  border-bottom-color: #a61f16;
+}
+
+.title-bar img {
+  padding: 0.3em;
+}
+
+.title-bar h1 {
+  font-family: Rubik;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 0.5em;
+  text-shadow: #a61f16 1px 0 10px;
+}
+
+.current-time {
+  margin-left: auto !important;
+  margin-right: 1em;
+}

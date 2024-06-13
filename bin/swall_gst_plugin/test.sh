@@ -1,0 +1,1 @@
+gst-launch-1.0 -v --gst-plugin-path=../../target/debug/ videotestsrc ! swall_capture_nav ! gtkwaylandsink

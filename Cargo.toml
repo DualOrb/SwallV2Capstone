@@ -1,0 +1,13 @@
+[workspace]
+resolver = "2"
+members = [
+    "bin/*",
+    "crates/*",
+]
+
+[profile.release]
+debug = "line-tables-only"
+lto = true
+
+[profile.dev]
+debug = "line-tables-only"

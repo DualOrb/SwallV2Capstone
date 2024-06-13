@@ -1,0 +1,41 @@
+services:
+  dev-env:
+    build: "."
+    image: swall-dev-image
+    container_name: swall-dev-container
+    volumes:
+      # All project work
+      - swall-project-working:/root/persistent
+
+      # Preserve SSH keys (for dev that you ssh git)
+      - swall-project-ssh:/root/.ssh
+
+      # Cargo caches
+      - swall-project-cargo-git-cache:/root/.cargo/git
+      - swall-project-cargo-registry-cache:/root/.cargo/registry
+
+      # Speed up vscode connecting to container
+      - swall-project-vscode-cache:/root/.vscode-server
+
+      # Forward the WSL (Windows Subsystem of Linux) wayland socket
+      - /run/desktop/mnt/host/wslg/runtime-dir/:/mnt/wayland/host
+
+    environment:
+      # Tell all launched applications the look for the forwarded WSL wayland socket
+      - XDG_RUNTIME_DIR=/mnt/wayland/host
+
+    working_dir: "/root/persistent"
+
+    # Override compiling the project with doing nothing. Devs will build when they want to.
+    command: sleep infinity
+
+    # Uncomment to expose rtp port
+    # ports:
+    # - "5555:5555/udp"
+
+volumes:
+  swall-project-working:
+  swall-project-cargo-git-cache:
+  swall-project-cargo-registry-cache:
+  swall-project-vscode-cache:
+  swall-project-ssh:

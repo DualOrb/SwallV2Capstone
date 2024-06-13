@@ -1,0 +1,24 @@
+services:
+  dev-env:
+    build:
+      dockerfile: client.Dockerfile
+    restart: unless-stopped
+    image: swall-client-image
+    container_name: swall-client-container
+    volumes:
+      # Where Wayland is hosted on host machine
+      - /run/user/1000:/mnt/wayland/host
+
+    environment:
+      # Set environment variables pertaining to the raspberry pi
+      - WAYLAND_DISPLAY=wayland-1
+      - XDG_RUNTIME_DIR=/mnt/wayland/host
+
+    working_dir: "/root"
+
+    command: gst-launch-1.0 -v udpsrc port=5555 caps="application/x-rtp,media=(string)video,encoding-name=(string)H264,payload=(int)96" ! rtph264depay ! h264parse ! openh264dec ! videoconvert ! videoscale ! swall_input_server ! gtkwaylandsink fullscreen=true
+
+    # Uncomment to expose rtp port
+    ports:
+    - "5555:5555/udp"
+    - "6503:6503/tcp"

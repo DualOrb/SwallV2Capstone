@@ -1,0 +1,17 @@
+# Add this file to `/etc/systemd/system/swall.service` then run `sudo systemctl daemon-reload` to add this service
+# Services can be started/stopped with `systemctl start swall` and `systemctl stop swall`.
+# Service status with `systemctl status swall`.
+# Logs will be stored in journald.
+[Unit]
+Description=sWall Gstreamer Pipeline
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/swall/swall
+ExecStart=bash /home/swall/swall/send-pipeline.sh
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
